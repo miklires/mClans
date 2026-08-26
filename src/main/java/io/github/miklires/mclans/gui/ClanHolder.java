@@ -1,0 +1,1 @@
+package io.github.miklires.mclans.gui;import org.bukkit.inventory.Inventory;import org.bukkit.inventory.InventoryHolder;import org.jetbrains.annotations.NotNull;public final class ClanHolder implements InventoryHolder{private Inventory inventory;public void inventory(Inventory value){inventory=value;}@Override public @NotNull Inventory getInventory(){return inventory;}}

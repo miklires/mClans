@@ -1,0 +1,22 @@
+config-version: 1
+naming:
+  name-regex: '[A-Za-z0-9_]{3,16}'
+  tag-regex: '[A-Za-z0-9]{2,5}'
+  reserved: [admin, owner, staff, console]
+invites:
+  expire-seconds: 120
+progression:
+  levels:
+    - { level: 1, points: 0, members: 5 }
+    - { level: 2, points: 250, members: 8 }
+    - { level: 3, points: 1000, members: 12 }
+    - { level: 4, points: 3000, members: 16 }
+pvp:
+  points-per-kill: 10
+  same-victim-cooldown-seconds: 3600
+metrics:
+  enabled: true
+  bstats-id: 0
+updates:
+  enabled: true
+  modrinth-project-id: ''
