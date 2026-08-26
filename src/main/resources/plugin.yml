@@ -1,0 +1,14 @@
+name: mClans
+version: ${version}
+main: io.github.miklires.mclans.MClansPlugin
+api-version: '26.2'
+author: miklires
+description: Persistent levelled clans for modern Paper servers
+folia-supported: true
+softdepend: [Vault, mReputation, mBadges, PlaceholderAPI]
+libraries:
+  - com.h2database:h2:2.3.232
+permissions:
+  mclans.use: { default: true }
+  mclans.admin: { default: op }
+  mclans.reload: { default: op }
