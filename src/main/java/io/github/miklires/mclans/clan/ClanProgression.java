@@ -1,0 +1,3 @@
+package io.github.miklires.mclans.clan;
+import java.util.List;
+public final class ClanProgression {private final List<Level> levels;public ClanProgression(List<Level> levels){this.levels=List.copyOf(levels);if(levels.isEmpty()||levels.getFirst().level()!=1)throw new IllegalArgumentException("Clan levels must start at 1");}public Level forPoints(long points){Level result=levels.getFirst();for(Level level:levels)if(points>=level.requiredPoints())result=level;return result;}public record Level(int level,long requiredPoints,int memberLimit){public Level{if(level<1||requiredPoints<0||memberLimit<1)throw new IllegalArgumentException("Invalid clan level");}}}
