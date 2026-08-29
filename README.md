@@ -17,17 +17,22 @@
 - Awards PvP points with a per-killer/per-victim anti-farm cooldown.
 - Provides Folia-safe friendly-fire protection and private clan chat.
 - Stores the clan bank and every balance change in an append-only ledger.
+- Connects the bank to Vault for deposits and permission-controlled withdrawals.
+- Supports confirmed ownership transfers and managing offline clan members.
+- Provides mutual alliances, enemy/neutral relations, and optional allied PvP protection.
+- Provides one shared clan home with a configurable teleport cooldown.
+- Shows the ten highest-scoring clans with deterministic ranking.
 - Shows clan progression and members in a read-only GUI.
 - Exposes membership and ally checks through Bukkit Services.
 
-This release focuses on the dependable social core. Claims, wars, auctions and cross-proxy synchronization are intentionally left for later releases.
+The default configuration is playable without optional dependencies. Clan creation is free until `economy.creation-cost` is changed. Wars, claims and cross-proxy synchronization remain separate modules so enabling the social core does not silently alter world protection or PvP rules.
 
 ## Requirements
 
 - Java 25
 - Paper, Purpur or Folia 26.2
 
-Vault, mReputation, mBadges and PlaceholderAPI are optional integration targets. The core plugin starts without them.
+Vault and an economy provider are required only for a non-zero creation cost and bank transfers. mReputation, mBadges and PlaceholderAPI remain optional integration targets. The core plugin starts without them.
 
 ## Commands
 
@@ -36,13 +41,21 @@ Vault, mReputation, mBadges and PlaceholderAPI are optional integration targets.
 - `/clan info [name|tag]`
 - `/clan leave`, `/clan kick <player>`
 - `/clan promote|demote <player>`
+- `/clan transfer <player> confirm`
 - `/clan ff <on|off>`
-- `/clan bank`
+- `/clan bank [balance|deposit|withdraw] [amount]`
+- `/clan sethome` and `/clan home`
+- `/clan ally|enemy|neutral <name|tag>`
+- `/clan top`
 - `/clan disband confirm`
 - `/cc <message>`
 - `/clan reload`
 
 Permissions: `mclans.use`, `mclans.admin`, `mclans.reload`.
+
+## Language and configuration
+
+English is selected by default. Set `language: ru_RU` and run `/clan reload` to switch the interface to Russian. Names, tags, invitation expiry, level thresholds, member limits, PvP rewards, home cooldown, allied protection, economy cost and telemetry are documented in the generated `config.yml`.
 
 ## Storage
 
