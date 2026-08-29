@@ -1,22 +1,39 @@
-config-version: 1
+config-version: 2
+# Bundled UI languages: en_US and ru_RU.
+language: en_US
 naming:
+  # Invalid expressions fall back to the safe defaults below. Input is also
+  # hard-limited to 32 characters for names and 16 for tags.
   name-regex: '[A-Za-z0-9_]{3,16}'
   tag-regex: '[A-Za-z0-9]{2,5}'
   reserved: [admin, owner, staff, console]
 invites:
+  # Runtime range: 10 seconds..7 days.
   expire-seconds: 120
+economy:
+  # Requires Vault and an economy provider. Set to 0 for free clan creation.
+  creation-cost: 0
+home:
+  cooldown-seconds: 30
+relations:
+  # Prevent allied clans from damaging one another.
+  protect-allies: true
 progression:
+  # Keep levels ordered by increasing points; members is the clan size limit.
   levels:
     - { level: 1, points: 0, members: 5 }
     - { level: 2, points: 250, members: 8 }
     - { level: 3, points: 1000, members: 12 }
     - { level: 4, points: 3000, members: 16 }
+    - { level: 5, points: 7500, members: 24 }
 pvp:
+  # Runtime caps: 1,000,000 points and a one-year cooldown.
   points-per-kill: 10
   same-victim-cooldown-seconds: 3600
 metrics:
-  enabled: true
+  # Disabled until a public bStats project ID is assigned.
+  enabled: false
   bstats-id: 0
 updates:
-  enabled: true
+  enabled: false
   modrinth-project-id: ''
