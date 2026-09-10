@@ -17,7 +17,7 @@ jobs:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           PROJECT_NAME: mClans
           SUMMARY: 'Persistent, levelled clans with diplomacy, homes, banking, and progression for Paper, Purpur, and Folia.'
-          CATEGORIES: '["social","game-mechanics"]'
+          CATEGORIES: '["game-mechanics","social"]'
           ADDITIONAL_CATEGORIES: '["economy"]'
           WIKI_URL: ''
         run: |
