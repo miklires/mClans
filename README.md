@@ -29,7 +29,7 @@ The default configuration is playable without optional dependencies. Clan creati
 ## Requirements
 
 - Java 25
-- Paper, Purpur or Folia 26.2
+- Paper, Purpur or Folia 26.3
 
 Vault and an economy provider are required only for a non-zero creation cost and bank transfers. mReputation, mBadges and PlaceholderAPI remain optional integration targets. The core plugin starts without them.
 

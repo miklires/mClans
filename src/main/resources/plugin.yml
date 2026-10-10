@@ -1,7 +1,7 @@
 name: mClans
 version: ${version}
 main: io.github.miklires.mclans.MClansPlugin
-api-version: '26.2'
+api-version: '26.3'
 author: miklires
 description: Persistent levelled clans for modern Paper servers
 folia-supported: true

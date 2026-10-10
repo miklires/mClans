@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2026-10-10
+
+- Added Minecraft 26.3 compatibility and verified the clean build and automated test suite against Paper API 26.3.
+
 ## 1.1.0 - 2026-08-28
 
 - Added confirmed ownership transfer and offline member management.
