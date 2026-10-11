@@ -15,6 +15,7 @@ jobs:
         shell: bash
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ secrets.MODRINTH_PROJECT_ID }}
           PROJECT_NAME: mClans
           SUMMARY: 'Persistent, levelled clans with diplomacy, homes, banking, and progression for Paper, Purpur, and Folia.'
           CATEGORIES: '["game-mechanics","social"]'
@@ -33,8 +34,11 @@ jobs:
           repo_name="${GITHUB_REPOSITORY#*/}"
           source_url="https://github.com/$GITHUB_REPOSITORY"
 
-          projects="$(curl --fail-with-body --silent --show-error --header "$auth" --header "$agent" "$api/user/miklires/projects")"
-          project_id="$(echo "$projects" | jq -r --arg expected "$PROJECT_NAME" '.[] | select((.title | ascii_downcase) == ($expected | ascii_downcase)) | .id' | head -n1)"
+          project_id="${MODRINTH_PROJECT_ID:-}"
+          if [ -z "$project_id" ]; then
+            projects="$(curl --fail-with-body --silent --show-error --header "$auth" --header "$agent" "$api/user/miklires/projects")"
+            project_id="$(echo "$projects" | jq -r --arg expected "$PROJECT_NAME" '.[] | select((.title | ascii_downcase) == ($expected | ascii_downcase)) | .id' | head -n1)"
+          fi
           if [ -z "$project_id" ]; then
             echo "Modrinth project not found for $PROJECT_NAME" >&2
             exit 1
